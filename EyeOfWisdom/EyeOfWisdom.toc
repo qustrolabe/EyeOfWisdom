@@ -1,0 +1,7 @@
+## Title: Eye of Wisdom
+## Interface: 30300
+## Author: qustrolabe
+## Notes: "Mouseover character scanning tool"
+## Version: 0.1beta
+##SavedVariables: EyeOfWisdomDB
+EyeOfWisdom.lua

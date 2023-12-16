@@ -135,6 +135,10 @@ local function observe_player(self, ...)
     -- Get player race
     local race, raceEn = UnitRace(unitId)
 
+    -- Get player gender
+    local genderTable = { "unknown", "male", "female" };
+    local gender = genderTable[UnitSex(unitId)]
+
     -- If can inspect
     local canInspect = CanInspect(unitId)
 
@@ -143,6 +147,7 @@ local function observe_player(self, ...)
         level = UnitLevel(unitId),
         class = UnitClass(unitId),
         race = raceEn,
+        gender = gender,
         guild = GetGuildInfo(unitId),
         faction = faction,
         inventorySlots = {},

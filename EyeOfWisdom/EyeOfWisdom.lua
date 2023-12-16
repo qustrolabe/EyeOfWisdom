@@ -108,8 +108,8 @@ local function observe_player(self, ...)
 
     local unitName, unitId = self:GetUnit()
 
-    -- Check if the unit is a mouseover
-    if unitId ~= "mouseover" then return end
+    -- Check if raidN or partyN or mouseover
+    if not string.match(unitId, "raid%d") and not string.match(unitId, "party%d") and unitId ~= "mouseover" then return end
 
     -- Check if the unit is a player
     if not UnitIsPlayer(unitId) then return end
@@ -245,15 +245,15 @@ local function get_player(name)
         local classColor = RAID_CLASS_COLORS[playerData.class:upper()] or { r = 1, g = 1, b = 1 } -- Default to white
         -- Use \124 instead of | to avoid chat frame error
         print("Class: \124cff" ..
-        string.format("%02x%02x%02x", classColor.r * 255, classColor.g * 255, classColor.b * 255) ..
-        playerData.class .. "\124r")
+            string.format("%02x%02x%02x", classColor.r * 255, classColor.g * 255, classColor.b * 255) ..
+            playerData.class .. "\124r")
 
         -- /run print(string.format("%02x%02x%02x", 1, 1, 1))
 
         if playerData.guild ~= nil then
             print("Guild: " .. playerData.guild)
         end
-        
+
         -- If inventorySlots is not empty
         if next(playerData.inventorySlots) ~= nil then
             print("Inventory slots:")

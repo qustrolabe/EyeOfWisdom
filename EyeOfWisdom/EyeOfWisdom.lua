@@ -111,6 +111,13 @@ local function observe_player(self, ...)
     -- Check if raidN or partyN or mouseover
     if not string.match(unitId, "raid%d") and not string.match(unitId, "party%d") and unitId ~= "mouseover" then return end
 
+    -- Skip if we are on battleground as there are mercenary players
+    -- that shown as your faction but are actually in opposing faction
+    if UnitIsPVP("player") then 
+        print("Player is in battleground, skipping")
+        return
+    end
+
     -- Check if the unit is a player
     if not UnitIsPlayer(unitId) then return end
 

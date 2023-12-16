@@ -132,6 +132,9 @@ local function observe_player(self, ...)
         return
     end
 
+    -- Get player race
+    local race, raceEn = UnitRace(unitId)
+
     -- If can inspect
     local canInspect = CanInspect(unitId)
 
@@ -139,6 +142,7 @@ local function observe_player(self, ...)
         name = unitName,
         level = UnitLevel(unitId),
         class = UnitClass(unitId),
+        race = raceEn,
         guild = GetGuildInfo(unitId),
         faction = faction,
         inventorySlots = {},

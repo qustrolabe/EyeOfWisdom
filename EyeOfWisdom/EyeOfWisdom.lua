@@ -270,6 +270,15 @@ local function get_player(name)
             print("Guild: " .. playerData.guild)
         end
 
+        -- Print race and gender if they are not nil
+        if playerData.race ~= nil then
+            print("Race:" .. playerData.race)
+        end
+
+        if playerData.gender ~= nil then
+            print("Gender:" .. playerData.gender)
+        end
+
         -- If inventorySlots is not empty
         if next(playerData.inventorySlots) ~= nil then
             print("Inventory slots:")

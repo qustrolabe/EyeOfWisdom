@@ -113,7 +113,7 @@ local function observe_player(self, ...)
 
     -- Skip if we are on battleground as there are mercenary players
     -- that shown as your faction but are actually in opposing faction
-    if UnitIsPVP("player") then 
+    if UnitIsPVP("player") then
         print("Player is in battleground, skipping")
         return
     end
@@ -263,8 +263,6 @@ local function get_player(name)
         print("Class: \124cff" ..
             string.format("%02x%02x%02x", classColor.r * 255, classColor.g * 255, classColor.b * 255) ..
             playerData.class .. "\124r")
-
-        -- /run print(string.format("%02x%02x%02x", 1, 1, 1))
 
         if playerData.guild ~= nil then
             print("Guild: " .. playerData.guild)
